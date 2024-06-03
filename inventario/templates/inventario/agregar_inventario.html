@@ -1,0 +1,33 @@
+{% extends "inventario/layout.html" %}
+{% block title %}Agregar Producto{% endblock  %}o
+{% block content %}
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 col-lg-4">
+        <form method="post">
+            {% csrf_token %}
+            <fieldset class="border p-4 rounded border-primary form-fieldset">
+                <legend class="border-bottom p-2 text-center">Agregar al Inventario</legend>
+                <div class="form-group">
+                    <label for="id_nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="id_nombre" name="nombre" placeholder="Ingrese el nombre">
+                </div>
+                <div class="form-group">
+                    <label for="id_precio">Precio:</label>
+                    <input type="number" class="form-control" id="id_precio" name="precio" placeholder="Ingrese el precio">
+                </div>
+                <div class="form-group">
+                    <label for="id_cantidad_existente">Cantidad Existente:</label>
+                    <input type="number" class="form-control" id="id_cantidad_existente" name="cantidad_existente" placeholder="Ingrese la cantidad existente">
+                </div>
+                <div class="form-group">
+                    <label for="id_cantidad_vendida">Cantidad Vendida:</label>
+                    <input type="number" class="form-control" id="id_cantidad_vendida" name="cantidad_vendida" placeholder="Ingrese la cantidad vendida">
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <button class="btn btn-outline-success" type="submit">Agregar</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}

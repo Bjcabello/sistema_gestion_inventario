@@ -1,0 +1,25 @@
+{% extends "../layout.html" %}
+{% block title %}Login{% endblock %}
+
+{% block navbar %}
+<!-- Dejamos este bloque vacío para no mostrar el navbar -->
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3 class="text-center">¿Estás seguro que quieres cerrar sesión?</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-block">Cerrar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock  %}

@@ -1,0 +1,43 @@
+{% extends "inventario/layout.html" %}
+
+{% block content %}
+
+<div class="container-fluid mt-5 pt-5">
+    <form method="get" action="">
+        <div class="input-group ">
+            <input type="search" class="form-control rounded" placeholder="Buscar inventario" aria-label="Buscar inventario" aria-describedby="button-addon2" name="q" value="{{ request.GET.q }}">
+            <button class="btn btn-dark" type="submit" id="button-addon2">Buscar</button>
+        </div>
+    </form>
+    <div class="table-responsive mt-4" style="max-height: 400px; overflow-y: auto;">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-primary">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad Existente</th>
+                    <th scope="col">Cantidad Vendida</th>
+                    <th scope="col">Ventas</th>
+                    <th scope="col">Fecha Entrada</th>
+                    <th scope="col">Fecha Salida</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for inventario in inventarios %}
+                <tr style="cursor:pointer;" onclick="window.location='{% url 'producto' inventario.id %}'">
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ inventario.nombre }}</td>
+                    <td>{{ inventario.precio }}</td>
+                    <td>{{ inventario.cantidad_existente }}</td>
+                    <td>{{ inventario.cantidad_vendida }}</td>
+                    <td>{{ inventario.ventas }}</td>
+                    <td>{{ inventario.fecha_entrada }}</td>
+                    <td>{{ inventario.fecha_salida }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

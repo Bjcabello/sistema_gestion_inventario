@@ -1,0 +1,42 @@
+{% extends "inventario/layout.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-sm-12 col-xs-12">
+            <div class="card m-4">
+                <div class="card-body">
+                    <h5 class="card-title text-center fw-bold"><i class="fi fi-ts-inventory-alt"> Nombre Producto</i></h5>
+                    <p class="card-text text-center"><small class="text-body-secondary">{{inventario.nombre}}</small></p>
+                    <hr>
+                    <h5 class="card-title text-center fw-bold"><i class="fi fi-br-dollar"> Precio</i></h5>
+                    <p class="card-text text-center"><small class="text-body-secondary">{{inventario.precio}}</small></p>
+                    <hr>
+                    <h5 class="card-title text-center fw-bold"><i class="fi fi-rr-hastag"> Cantidad Existente</i></h5>
+                    <p class="card-text text-center"><small class="text-body-secondary">{{inventario.cantidad_existente}}</small></p>
+                    <hr>
+                    <h5 class="card-title text-center fw-bold"><i class="fi fi-rr-hastag"> Cantidad Vendidas</i></h5>
+                    <p class="card-text text-center"><small class="text-body-secondary">{{inventario.cantidad_vendida}}</small></p>
+                    <hr>
+                    <h5 class="card-title text-center fw-bold"><i class="fi fi-rr-selling"> Ventas</i></h5>
+                    <p class="card-text text-center"><small class="text-body-secondary">{{inventario.ventas}}</small></p>
+                    <hr>
+                    <h5 class="card-title text-center fw-bold"><i class="fi fi-rs-calendar"> Fecha de Entrada</i></h5>
+                    <p class="card-text text-center"><small class="text-body-secondary">{{inventario.fecha_entrada}}</small></p>
+                    <hr>
+                    <h5 class="card-title text-center fw-bold"><i class="fi fi-rs-calendar"> Fecha de Salida</i></h5>
+                    <p class="card-text text-center"><small class="text-body-secondary">{{inventario.fecha_salida}}</small></p>
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <a class="btn btn-danger btn-sm mb-1" href="{% url 'eliminar' inventario.id %}">Eliminar</a>
+                        <a class="btn btn-outline-success btn-sm mb-1" href="{% url 'actualizar' inventario.id %}">Actualizar</a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
+{% endblock  %}
