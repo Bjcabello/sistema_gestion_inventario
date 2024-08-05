@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'inventario.middleware.DisableCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'sgi.urls'
@@ -132,9 +133,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-LOGIN_REDIRECT_URL = '/inventario/'
-LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL = 'login'  
 LOGOUT_REDIRECT_URL = 'login'
+
 
 # Ubicación de la plantilla de login
 LOGIN_TEMPLATE_DIRS = [
